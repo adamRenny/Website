@@ -1,0 +1,25 @@
+.skipNav {
+    position: absolute;
+    right: 50%;
+    z-index: 10;
+}
+
+.skipNav-container {
+    position: relative;
+    left: 50%;
+}
+
+.skipNav-container-skip {
+    position: relative;
+    padding: 20px;
+    font-size: 20px;
+    top: -60px;
+    background-color: @lightBlue;
+    color: @darkBlue;
+    -webkit-transition: top 0.2s ease-out;
+    transition: top 0.2s ease-out;
+}
+
+.skipNav-container-skip:focus {
+    top: 20px;
+}
