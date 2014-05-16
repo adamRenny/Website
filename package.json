@@ -1,22 +1,21 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "name": "adamRenny-Website",
+  "version": "0.0.1",
+  "description": "Personal Website",
   "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
+    "renny",
+    "adamrenny",
+    "nodejs"
   ],
   "author": {
     "name": "Adam Ranfelt",
     "email": "adamRenny@gmail.com",
-    "url": "http://www.openshift.com/"
+    "url": "http://adamrenny.me/"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "http://adamrenny.me/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openshift/origin-server"
+    "url": "https://github.com/adamRenny/Website"
   },
 
   "engines": {
