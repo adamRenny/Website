@@ -1,19 +1,23 @@
+@footerHeight: 80px;
+
 html, body {
     height: 100%;
 }
 
 .container {
     min-height: 100%;
-    margin-bottom: -80px;
+    margin-bottom: -@footerHeight;
 }
 
 .container:after {
     content: '';
     display: block;
+    padding-bottom: @footerHeight;
 }
 
 .footer {
-    height: 80px;
+    height: @footerHeight;
+    max-height: @footerHeight;
     background-color: @darkBlue;
 
     // box-shadow: 0 0 6px 4px @shadow;
