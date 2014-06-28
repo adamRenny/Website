@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>adamRenny's Website</title>
+    <link href="{{= it.settings.baseUrl}}styles/screen.css"
+        rel="stylesheet"
+        media="screen" />
+    <link href="{{= it.settings.baseUrl}}styles/screen-medium.css"
+        rel="stylesheet"
+        media="(max-width: 1055px)" />
+    <link href="{{= it.settings.baseUrl}}styles/screen-small.css"
+        rel="stylesheet"
+        media="(max-width: 767px)" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no" />
+</head>
+<body>
+
+    {{#def.include('~/_partials/svgSrc')}}
+
+    <!-- Skip Links -->
+    <div class="skipNav">
+        <a href="#content" accesskey="H">Skip to Main Content</a>
+        <a href="#topMainNav" accesskey="N">Skip to Main Navigation</a>
+        <a href="#topSocialNav" accesskey="S">Skip to Social Navigation</a>
+        <a href="#copyright" accesskey="L">Skip to Copyright</a>
+    </div>
+    <!-- End Skip Links -->
+
+    <!-- Main Container -->
+    <div class="wrap">
+        <!-- Masthead -->
+        <div class="masthead">
+            <div class="masthead-bd" role="banner">
+                <div class="sleeve">
+                    <div class="masthead-bd-logo">
+                        <a href="{{= it.settings.baseUrl}}" title="Return to Main" class="hdg hdg_1">
+                            <h1 aria-label="Logo">&lt;adamRenny&nbsp;&#47;&gt;</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="masthead-nav" role="navigation">
+                <div class="mainNav">
+                    {{#def.include('~/_partials/pageNav')}}
+
+                    {{#def.include('~/_partials/socialNav')}}
+                </div>
+            </div>
+        </div>
+        <!-- End Masthead -->
+
+        <!-- Main Content -->
+        <div class="sleeve" id="mainContent"
+            role="main">
+            <div class="content">
