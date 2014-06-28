@@ -6,6 +6,7 @@ var path = require('path');
 
 var IP_ADDRESS = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var PORT = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var IS_PRODUCTION = process.env.NODE_ENV !== 'development';
 
 var app = express();
 
@@ -31,9 +32,14 @@ function setup() {
     app.set('view engine', 'html');
     app.engine('html', dotEmc.init({
             app: app, 
-            fileExtension:'html'
+            fileExtension: 'html',
+            options: {
+                templateSettings: {
+                    cache: IS_PRODUCTION
+                }
+            }
         }).__express);
-    app.use('/scripts', express.static(path.join(__dirname, 'web', 'scripts')));
+    // app.use('/scripts', express.static(path.join(__dirname, 'web', 'scripts')));
     app.use('/styles', express.static(path.join(__dirname, 'web', 'styles')));
     app.use('/media', express.static(path.join(__dirname, 'web', 'media')));
 
