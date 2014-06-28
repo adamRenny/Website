@@ -1,0 +1,26 @@
+.skipNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.skipNav a {
+    position: absolute;
+    background-color: @colorShadedDark;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: @colorBrightLight;
+    top: -10000px;
+    right: 0;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.skipNav a:focus {
+    top: 0;
+    padding: 8px 16px;
+}
+
+.skipNav a:after {
+    content: ' [' attr(accesskey) ']';
+}

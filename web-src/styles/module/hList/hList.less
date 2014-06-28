@@ -1,0 +1,17 @@
+.hList > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.hList_spaced > * {
+    margin-left: @sizeBasic / 2;
+}
+
+.hList_spacedSm > * {
+    margin-left: @sizeBasic / 4;
+}
+
+.hList_spaced > *:first-child,
+.hList_spacedSm > *:first-child {
+    margin-left: 0;
+}
