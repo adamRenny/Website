@@ -33,6 +33,7 @@ function setup() {
             app: app, 
             fileExtension:'html'
         }).__express);
+    app.use('/scripts', express.static(path.join(__dirname, 'web', 'scripts')));
     app.use('/styles', express.static(path.join(__dirname, 'web', 'styles')));
     app.use('/media', express.static(path.join(__dirname, 'web', 'media')));
 
