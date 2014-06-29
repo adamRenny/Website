@@ -59,6 +59,9 @@ function setup() {
         }); 
     });
 
+    // Favicons
+    app.use('/', express.static(path.join(__dirname, 'web', 'favicon')));
+
     app.use(function(req, res) {
         res.render('404', function(err, content) {
             res.setHeader('Content-Type', 'text/html');
