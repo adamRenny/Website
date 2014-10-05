@@ -3,6 +3,7 @@
 var express = require('express');
 var dotEmc = require('dot-emc');
 var path = require('path');
+var fs = require('extended-fs');
 
 var IP_ADDRESS = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var PORT = process.env.OPENSHIFT_NODEJS_PORT || 3000;
@@ -39,7 +40,28 @@ function setup() {
                 }
             }
         }).__express);
-    // app.use('/scripts', express.static(path.join(__dirname, 'web', 'scripts')));
+    // Stand in RequireJS step
+    app.use('/scripts/vendor/require.js', function(req, res) {
+        function fulfillScript(content) {
+            res.setHeader('Content-Type', 'text/javascript');
+            res.send(content);
+        }
+
+        fs.readFilePromise(path.join(__dirname, 'web-src', 'vendor', 'requirejs', 'require.js'), 'utf-8')
+            .then(fulfillScript);
+    });
+
+    // Stand in Lodash step
+    app.use('/scripts/vendor/lodash.js', function(req, res) {
+        function fulfillScript(content) {
+            res.setHeader('Content-Type', 'text/javascript');
+            res.send(content);
+        }
+
+        fs.readFilePromise(path.join(__dirname, 'web-src', 'vendor', 'lodash', 'dist', 'lodash.compat.js'), 'utf-8')
+            .then(fulfillScript);
+    });
+    app.use('/scripts', express.static(path.join(__dirname, 'web-src', 'scripts')));
     app.use('/styles', express.static(path.join(__dirname, 'web', 'styles')));
     app.use('/media', express.static(path.join(__dirname, 'web', 'media')));
 
@@ -54,6 +76,13 @@ function setup() {
 
     app.get('/license', function(req, res) {
         res.render('license', function(err, content) {
+            res.setHeader('Content-Type', 'text/html');
+            res.send(content);
+        }); 
+    });
+
+    app.get('/webgl', function(req, res) {
+        res.render('webgl', function(err, content) {
             res.setHeader('Content-Type', 'text/html');
             res.send(content);
         }); 

@@ -2,6 +2,7 @@
   "name": "adamRenny-Website",
   "version": "1.1.0",
   "description": "adamRenny's Personal Website",
+  "license": "MIT",
   "keywords": [
     "renny",
     "adamrenny",
@@ -18,7 +19,7 @@
     "url": "https://github.com/adamRenny/Website"
   },
   "engines": {
-    "node": ">= 0.10.0",
+    "node": ">= 0.10.29",
     "npm": ">= 1.0.0"
   },
   "dependencies": {
