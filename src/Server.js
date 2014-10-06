@@ -1,4 +1,5 @@
 var express = require('express');
+var console = require('./console');
 var CONFIG = require('./config');
 var Promise = require('bluebird');
 
