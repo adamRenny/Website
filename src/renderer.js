@@ -1,9 +1,7 @@
-var path = require('path');
-
 var dotEmc = require('dot-emc');
 var path = require('path');
-var server = require(path.join(__dirname, 'server'));
-var CONFIG = require(path.join(__dirname, 'config'));
+var server = require('./server');
+var CONFIG = require('./config');
 
 function Renderer() {}
 

@@ -1,5 +1,4 @@
-var path = require('path');
-var CONFIG = require(path.join(__dirname, 'config'));
+var CONFIG = require('./config');
 var session = require('express-session');
 var lusca = require('lusca');
 
