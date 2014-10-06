@@ -1,9 +1,11 @@
-var server = require('./server');
-var identity = require('./identity');
-var security = require('./security');
+var path = require('path');
 
-var renderer = require('./renderer');
-var router = require('./routing');
+var server = require(path.join(__dirname, 'server'));
+var identity = require(path.join(__dirname, 'identity'));
+var security = require(path.join(__dirname, 'security'));
+
+var renderer = require(path.join(__dirname, 'renderer'));
+var router = require(path.join(__dirname, 'routing'));
 
 function Pipeline() {}
 
