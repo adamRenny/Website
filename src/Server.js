@@ -1,6 +1,7 @@
+var path = require('path');
 var express = require('express');
-var console = require('./console');
-var CONFIG = require('./config');
+var console = require(path.join(__dirname, 'console'));
+var CONFIG = require(path.join(__dirname, 'config'));
 var Promise = require('bluebird');
 
 function Server(impl) {

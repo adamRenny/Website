@@ -1,6 +1,7 @@
-var console = require('./src/console');
-var CONFIG = require('./src/config');
-var server = require('./src/server');
+var path = require('path');
+var console = require(path.join(__dirname, '/src/console'));
+var CONFIG = require(path.join(__dirname, '/src/config'));
+var server = require(path.join(__dirname, '/src/server'));
 
 var pipeline = require('./src/pipeline');
 
