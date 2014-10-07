@@ -12,28 +12,56 @@ function setUp() {
     impl.use('/styles', express.static(path.join(CONFIG.ROOT, 'web', 'styles')));
     impl.use('/media', express.static(path.join(CONFIG.ROOT, 'web', 'media')));
 
-    impl.get('/', function(req, res) {
-        res.render('index', function(err, content) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(content);
-        });
+    impl.get('/', function(req, res, next) {
+        res.render(
+            'index',
+            {
+                title: 'Home'
+            },
+            function(err, content) {
+                if (err) {
+                    next();
+                    return;
+                }
+
+                res.setHeader('Content-Type', 'text/html');
+                res.send(content);
+            }
+        );
     });
 
     impl.get('/license', function(req, res) {
-        res.render('license', function(err, content) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(content);
-        });
+        res.render(
+            'license',
+            {
+                title: 'MIT License'
+            },
+            function(err, content) {
+                if (err) {
+                    next();
+                    return;
+                }
+
+                res.setHeader('Content-Type', 'text/html');
+                res.send(content);
+            }
+        );
     });
 
     // Favicons
     impl.use('/', express.static(path.join(CONFIG.ROOT, 'web', 'favicon')));
 
     impl.use(function(req, res) {
-        res.render('404', function(err, content) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(404, content);
-        });
+        res.render(
+            '404',
+            {
+                title: 'Not Found'
+            },
+            function(err, content) {
+                res.setHeader('Content-Type', 'text/html');
+                res.send(404, content);
+            }
+        );
     });
 }
 

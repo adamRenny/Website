@@ -27,7 +27,10 @@ function setUp() {
 
     impl[viewCacheMethod]('view cache');
 
-    impl.set('baseUrl', CONFIG.BASE_URL);
+    // Turn off the header - take away as much inference as possible
+    impl.disable('x-powered-by');
+
+    impl.locals.baseUrl = CONFIG.BASE_URL;
 }
 
 Renderer.prototype = {
