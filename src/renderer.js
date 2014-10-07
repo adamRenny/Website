@@ -20,9 +20,12 @@ function setUp() {
     impl.set('view engine', 'hbs');
     impl.engine('hbs', this.impl.engine);
 
+    var viewCacheMethod = 'disable';
     if (CONFIG.IS_PRODUCTION) {
-        impl.enable('view cache');
+        viewCacheMethod = 'enable';
     }
+
+    impl[viewCacheMethod]('view cache');
 
     impl.set('baseUrl', CONFIG.BASE_URL);
 }
