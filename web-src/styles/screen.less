@@ -1,26 +1,9 @@
-@import 'vendor/reset';
+@import 'screen-base';
 
-@import 'config/color';
-@import 'config/size';
+@media (max-width: 1055px) {
+    @import 'screen-medium';
+}
 
-@import 'utility/base';
-@import 'utility/accessibility';
-@import 'utility/assets';
-@import 'utility/clearfix';
-
-// Layout
-@import 'module/sleeve/sleeve';
-@import 'module/hList/hList';
-@import 'module/media/media';
-@import 'module/footer/footer';
-
-// Container
-@import 'module/skipNav/skipNav';
-@import 'module/masthead/masthead';
-@import 'module/mainNav/mainNav';
-@import 'module/article/article';
-@import 'module/content/content';
-
-// Style
-@import 'module/headings/headings';
-@import 'module/vecIco/vecIco';
+@media (max-width: 767px) {
+    @import 'screen-small';
+}
