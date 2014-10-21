@@ -1,16 +1,18 @@
 var express = require('express');
-var fs = require('extended-fs');
+//var fs = require('extended-fs');
 var path = require('path');
-var server = require('./server');
-var CONFIG = require('./config');
+var server = require('../../../instance');
+var CONFIG = require('../../../../config/config');
 
 function Router() {}
 
 function setUp() {
     var impl = server.impl;
 
-    impl.use('/styles', express.static(path.join(CONFIG.ROOT, 'web', 'styles')));
-    impl.use('/media', express.static(path.join(CONFIG.ROOT, 'web', 'media')));
+    var webPath = path.join(CONFIG.PATHS.ROOT, 'web');
+
+    impl.use('/styles', express.static(path.join(webPath, 'styles')));
+    impl.use('/media', express.static(path.join(webPath, 'media')));
 
     impl.get('/', function(req, res, next) {
         res.render(
@@ -49,7 +51,7 @@ function setUp() {
     });
 
     // Favicons
-    impl.use('/', express.static(path.join(CONFIG.ROOT, 'web', 'favicon')));
+    impl.use('/', express.static(path.join(webPath, 'favicon')));
 
     impl.use(function(req, res) {
         res.render(
@@ -71,4 +73,4 @@ Router.prototype = {
     setUp: setUp
 };
 
-module.exports = new Router();
+module.exports = Router;

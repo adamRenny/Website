@@ -1,17 +1,17 @@
 var path = require('path');
-var console = require(path.join(__dirname, '/src/console'));
-var CONFIG = require(path.join(__dirname, '/src/config'));
-var server = require(path.join(__dirname, '/src/server'));
+var console = require('./src/console');
+var CONFIG = require('./src/config/config');
+var server = require('./src/server/instance');
 
-var pipeline = require('./src/pipeline');
+var pipeline = require('./src/server/pipeline/instance');
 
 function onReceivedKillSignal(signal) {
-    console.timed('Received %s - terminating node server ...', signal);
+    console.timed(CONFIG.STRINGS.SERVER.ON_KILL, signal);
     process.exit(1);
 }
 
 function processHasStopped() {
-    console.timed('Node server stopped.');
+    console.timed(CONFIG.STRINGS.SERVER.PROCESS_TERMINATED);
 }
 
 // Setup all process failure events

@@ -1,9 +1,9 @@
-var server = require('./server');
-var identity = require('./identity');
-var security = require('./security');
+var server = require('../instance');
+var identity = require('./pipe/identity/instance');
+var security = require('./pipe/security/instance');
 
-var renderer = require('./renderer');
-var router = require('./routing');
+var renderer = require('./pipe/renderer/instance');
+var router = require('./pipe/router/instance');
 
 function Pipeline() {}
 
@@ -31,4 +31,4 @@ Pipeline.prototype = {
     setUp: setUp
 };
 
-module.exports = new Pipeline();
+module.exports = Pipeline;

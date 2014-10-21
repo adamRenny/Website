@@ -1,24 +1,26 @@
 var expressHandlebars = require('express-handlebars');
 var path = require('path');
-var server = require('./server');
-var CONFIG = require('./config');
+var server = require('../../../instance');
+var CONFIG = require('../../../../config/config');
 
 function Renderer() {}
 
 function setUp() {
+    var viewPath = path.join(CONFIG.PATHS.ROOT, 'src', 'app', 'view');
+
     this.impl = expressHandlebars.create({
-        extname: '.hbs',
+        extname: '.' + CONFIG.TEMPLATE_EXT,
         defaultLayout: 'core',
-        layoutsDir: path.join(CONFIG.ROOT, 'src', 'view', 'layout'),
-        partialsDir: path.join(CONFIG.ROOT, 'src', 'view', 'partial')
+        layoutsDir: path.join(viewPath, 'layout'),
+        partialsDir: path.join(viewPath, 'partial')
     });
 
     var impl = server.impl;
 
-    impl.set('views', path.join(CONFIG.ROOT, 'src', 'view'));
+    impl.set('views', viewPath);
 
-    impl.set('view engine', 'hbs');
-    impl.engine('hbs', this.impl.engine);
+    impl.set('view engine', CONFIG.TEMPLATE_EXT);
+    impl.engine(CONFIG.TEMPLATE_EXT, this.impl.engine);
 
     var viewCacheMethod = 'disable';
     if (CONFIG.IS_PRODUCTION) {
@@ -39,4 +41,4 @@ Renderer.prototype = {
     setUp: setUp
 };
 
-module.exports = new Renderer();
+module.exports = Renderer;

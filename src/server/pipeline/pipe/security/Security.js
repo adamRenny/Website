@@ -1,4 +1,4 @@
-var CONFIG = require('./config');
+var CONFIG = require('../../../../config/config');
 var session = require('express-session');
 var lusca = require('lusca');
 
@@ -40,4 +40,4 @@ Security.prototype = {
     generateP3P: generateP3P
 };
 
-module.exports = new Security();
+module.exports = Security;

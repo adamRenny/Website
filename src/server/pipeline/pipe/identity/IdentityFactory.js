@@ -21,4 +21,4 @@ IdentityFactory.prototype = {
     processIdentity: processIdentity
 };
 
-module.exports = new IdentityFactory();
+module.exports = IdentityFactory;
