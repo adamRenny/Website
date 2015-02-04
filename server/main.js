@@ -1,15 +1,15 @@
+'use strict';
 
-var console = require('./src/console');
-var CONFIG = require('./src/config/config');
-var server = require('./src/server/instance');
+var CONFIG = require('./config/index');
+var server = require('./core/index').server;
 
 function onReceivedKillSignal(signal) {
-    console.timed(CONFIG.STRINGS.SERVER.ON_KILL, signal);
+    console.log(CONFIG.STRINGS.SERVER.ON_KILL, signal);
     process.exit(1);
 }
 
 function processHasStopped() {
-    console.timed(CONFIG.STRINGS.SERVER.PROCESS_TERMINATED);
+    console.log(CONFIG.STRINGS.SERVER.PROCESS_TERMINATED);
 }
 
 // Setup all process failure events
@@ -18,6 +18,4 @@ CONFIG.TEARDOWN_SIGNALS.forEach(function(signal) {
     process.on(signal, onReceivedKillSignal.bind(global, signal));
 });
 
-pipeline.setUp();
-
-server.listen();
+server.start();
