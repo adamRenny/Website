@@ -1,7 +1,7 @@
 'use strict';
 
 var CONFIG = require('./config/index');
-var server = require('./core/index').server;
+var core = require('./core/index');
 
 function onReceivedKillSignal(signal) {
     console.log(CONFIG.STRINGS.SERVER.ON_KILL, signal);
@@ -18,4 +18,4 @@ CONFIG.TEARDOWN_SIGNALS.forEach(function(signal) {
     process.on(signal, onReceivedKillSignal.bind(global, signal));
 });
 
-server.start();
+core.prepareServer();
