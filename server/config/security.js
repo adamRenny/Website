@@ -1,3 +1,5 @@
+'use strict';
+
 var IS_PRODUCTION = require('./environment');
 
 module.exports = {

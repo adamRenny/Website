@@ -1,6 +1,9 @@
+'use strict';
+
 var STRINGS = require('./strings');
 var PATHS = require('./paths');
 var SECURITY = require('./security');
+var RENDERER = require('./renderer');
 
 var IS_PRODUCTION = require('./environment');
 
@@ -8,8 +11,6 @@ module.exports = {
     STRINGS: STRINGS,
 
     IS_PRODUCTION: IS_PRODUCTION,
-
-    TEMPLATE_EXT: 'hbs',
 
     BASE_URL: '/',
     PATHS: PATHS,
@@ -22,6 +23,8 @@ module.exports = {
     },
 
     SECURITY: SECURITY,
+
+    RENDERER: RENDERER,
 
     SERVER: {
         IP_ADDRESS: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',

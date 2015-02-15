@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
     SERVER: {
         ON_KILL: 'Received %s - terminating node server ...',
