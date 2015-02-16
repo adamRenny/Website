@@ -24,7 +24,9 @@ function setUp(server) {
         path: CONFIG.RENDERER.PATHS.VIEWS,
         helpersPath: CONFIG.RENDERER.PATHS.VIEW_HELPERS,
         layoutPath: CONFIG.RENDERER.PATHS.LAYOUTS,
-        partialsPath: CONFIG.RENDERER.PATHS.PARTIALS
+        partialsPath: CONFIG.RENDERER.PATHS.PARTIALS,
+
+        isCached: CONFIG.IS_PRODUCTION
     });
 }
 

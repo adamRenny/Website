@@ -133,7 +133,6 @@ function buildRouteHandlers(routeList) {
 }
 
 function integrateAssetRoute(server) {
-    console.log(URLS.ASSETS_PATH, PATHS.APP.ASSETS);
     server.route({
         method: 'GET',
         path: URLS.ASSETS_PATH,

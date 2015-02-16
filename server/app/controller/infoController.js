@@ -9,8 +9,13 @@ function aboutAction(request, reply) {
     return reply.view('about');
 }
 
+function licenseAction(request, reply) {
+    return reply.view('license');
+}
+
 _.merge(InfoController.prototype, {
-    aboutAction: aboutAction
+    aboutAction: aboutAction,
+    licenseAction: licenseAction
 });
 
 module.exports = new InfoController();
