@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description"
+          content="Adam Renny's development website, a testbed for experiments" />
+    <meta name="author"
+          content="Adam Ranfelt" />
+
+    <title>adamRenny{{#if title}} | {{ title }}{{/if}}</title>
+
+    <meta name="robots" content="index,follow" />
+
+    <link rel="icon" href="{{ baseUrl }}favicon.ico"
+          sizes="16x16 32x32 48x48 64x64"
+          type="image/vnd.microsoft.icon" />
+
+    <meta property="og:title"
+          content="adamRenny" />
+    <meta property="og:type"
+          content="website" />
+    <meta property="og:description"
+          content="Adam Renny's personal development playground website" />
+    <meta property="og:image"
+          content="http://site.adamrenny.me/media/img/8bit.png" />
+    <meta property="og:url"
+          content="http://site.adamrenny.me/" />
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no" />
+
+    {{!-- Styles --}}
+    <link href="{{ baseUrl }}styles/screen.css"
+          rel="stylesheet"
+          media="screen" />
+    {{!-- End Styles --}}
+
+    {{!-- Scripts --}}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52339986-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    {{!-- End Scripts --}}
+</head>
+<body>
+    {{> assets/svg/logos }}
+
+    {{!-- Skip Links --}}
+    <div class="skipNav">
+        <a href="#content" accesskey="H">Skip to Main Content</a>
+        <a href="#topMainNav" accesskey="N">Skip to Main Navigation</a>
+        <a href="#topSocialNav" accesskey="S">Skip to Social Navigation</a>
+        <a href="#copyright" accesskey="L">Skip to Copyright</a>
+    </div>
+    {{!-- End Skip Links --}}
+
+    {{!-- Main Container --}}
+    <div class="wrap">
+        {{!-- Masthead --}}
+        <div class="masthead">
+            <div class="masthead-bd" role="banner">
+                <div class="sleeve">
+                    <div class="masthead-bd-logo">
+                        <a href="{{ baseUrl }}" title="Return to Main" class="hdg hdg_1">
+                            <h1 aria-label="Logo">&lt;adamRenny&nbsp;&#47;&gt;</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="masthead-nav" role="navigation">
+                <div class="mainNav">
+                    <div id="topMainNav">
+                        {{> sections/nav/page }}
+                    </div>
+
+                    <div id="topSocialNav">
+                        {{> sections/nav/social }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- End Masthead --}}
+
+        {{!-- Main Content --}}
+        <div class="sleeve" id="mainContent"
+             role="main">
+            <div class="content">
