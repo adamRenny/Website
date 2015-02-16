@@ -4,6 +4,7 @@ var STRINGS = require('./strings');
 var PATHS = require('./paths');
 var SECURITY = require('./security');
 var RENDERER = require('./renderer');
+var URLS = require('./urls');
 
 var IS_PRODUCTION = require('./environment');
 
@@ -12,7 +13,7 @@ module.exports = {
 
     IS_PRODUCTION: IS_PRODUCTION,
 
-    BASE_URL: '/',
+    URLS: URLS,
     PATHS: PATHS,
 
     SESSION: {

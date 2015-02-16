@@ -5,6 +5,7 @@ var path = require('path');
 var ROOT = path.join(__dirname, '..', '..');
 var APP = path.join(ROOT, 'server', 'app')
 var VIEW = path.join(APP, 'view');
+var WEB = path.join(ROOT, 'web');
 
 module.exports = {
     ROOT: ROOT,
@@ -13,7 +14,8 @@ module.exports = {
         ROOT: APP,
         ROUTES: path.join(APP, 'route'),
         CONTROLLERS: path.join(APP, 'controller'),
-        MODELS: path.join(APP, 'model')
+        MODELS: path.join(APP, 'model'),
+        ASSETS: WEB
     },
 
     RENDERER: {

@@ -2,6 +2,7 @@
 
 var handlebars = require('handlebars');
 var PATHS = require('./paths');
+var URLS = require('./urls');
 
 module.exports = {
 
@@ -10,8 +11,10 @@ module.exports = {
     ENGINE: {
         hbs: handlebars
     },
+    
     COMPILE_MODE: 'async',
-    VIEW_DEFAULTS: {
 
+    VIEW_DEFAULTS: {
+        baseUrl: URLS.BASE_URL
     }
 };

@@ -3,7 +3,7 @@
 module.exports = [
     {
         path: '/',
-        controller: 'test',
-        action: 'init'
+        controller: 'infoController',
+        action: 'aboutAction'
     }
 ];
