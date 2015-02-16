@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var assert = require('assert');
 var Hapi = require('hapi');
 var path = require('path');
@@ -16,8 +17,8 @@ function setUp(server) {
     server.views({
         // Setup
         engines: CONFIG.RENDERER.ENGINE,
-        compileMode: CONFIG.RENDERER.COMPILE_MODE,
         context: CONFIG.RENDERER.VIEW_DEFAULTS,
+        layout: 'base',
 
         // Paths
         path: CONFIG.RENDERER.PATHS.VIEWS,
@@ -27,6 +28,8 @@ function setUp(server) {
     });
 }
 
-Renderer.prototype.setUp = setUp;
+_.merge(Renderer.prototype, {
+    setUp: setUp
+});
 
 module.exports = new Renderer();

@@ -5,7 +5,9 @@ var path = require('path');
 var assert = require('assert');
 var _ = require('lodash');
 var Hapi = require('hapi');
-var PATHS = require('../config/index').PATHS;
+var CONFIG = require('../config/index');
+var PATHS = CONFIG.PATHS;
+var URLS = CONFIG.URLS;
 
 var ROUTE_DEFAULT = {
     METHOD: 'GET'
@@ -112,7 +114,8 @@ function buildRouteHandlers(routeList) {
         );
 
         function routeHandler(request, reply) {
-            controller[method](request, reply);
+            debugger;
+            return controller[method](request, reply);
         }
 
         var finalRoute = {};
@@ -127,6 +130,19 @@ function buildRouteHandlers(routeList) {
         routeList,
         buildRouteHandler
     );
+}
+
+function integrateAssetRoute(server) {
+    console.log(URLS.ASSETS_PATH, PATHS.APP.ASSETS);
+    server.route({
+        method: 'GET',
+        path: URLS.ASSETS_PATH,
+        handler: {
+            directory: {
+                path: PATHS.APP.ASSETS
+            }
+        }
+    });
 }
 
 function integrateRoutes(server, routes) {
@@ -149,9 +165,13 @@ function setUp(server) {
     validateRoutes(routeList);
     var routes = buildRouteHandlers(routeList)
 
+    integrateAssetRoute(server);
+
     integrateRoutes(server, routes);
 }
 
-Router.prototype.setUp = setUp;
+_.merge(Router.prototype, {
+    setUp: setUp
+});
 
 module.exports = new Router();
