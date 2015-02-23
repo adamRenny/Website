@@ -18,6 +18,9 @@ function setUp(server) {
         // Setup
         engines: CONFIG.RENDERER.ENGINE,
         context: CONFIG.RENDERER.VIEW_DEFAULTS,
+        // compileMode: CONFIG.RENDERER.COMPILE_MODE,
+
+        // Layouts are cached when rendered, despite the setting on the configuration
         layout: 'base',
 
         // Paths

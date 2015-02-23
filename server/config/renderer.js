@@ -15,6 +15,6 @@ module.exports = {
     COMPILE_MODE: 'async',
 
     VIEW_DEFAULTS: {
-        baseUrl: URLS.BASE_URL
+        baseUrl: URLS.URI.BASE
     }
 };

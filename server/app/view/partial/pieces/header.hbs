@@ -11,7 +11,7 @@
 
     <meta name="robots" content="index,follow" />
 
-    <link rel="icon" href="{{ baseUrl }}favicon.ico"
+    <link rel="icon" href="{{ asset 'favicon.ico' }}"
           sizes="16x16 32x32 48x48 64x64"
           type="image/vnd.microsoft.icon" />
 
@@ -30,7 +30,7 @@
           content="width=device-width, user-scalable=no" />
 
     {{!-- Styles --}}
-    <link href="{{ baseUrl }}styles/screen.css"
+    <link href="{{ asset 'styles/screen.css' }}"
           rel="stylesheet"
           media="screen" />
     {{!-- End Styles --}}
@@ -65,7 +65,7 @@
             <div class="masthead-bd" role="banner">
                 <div class="sleeve">
                     <div class="masthead-bd-logo">
-                        <a href="{{ baseUrl }}" title="Return to Main" class="hdg hdg_1">
+                        <a href="{{ route 'index' }}" title="Return to Main" class="hdg hdg_1">
                             <h1 aria-label="Logo">&lt;adamRenny&nbsp;&#47;&gt;</h1>
                         </a>
                     </div>

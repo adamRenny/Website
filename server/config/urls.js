@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = {
-    BASE_URL: '/',
-    ASSETS_PATH: '/{param*}'
+    ROUTES: {
+        ASSETS: '/assets/{param*}'
+    },
+
+    URI: {
+        ASSETS: '/assets',
+        BASE: '/',
+        CSP_REPORT: '/cspLog'
+    }
 };

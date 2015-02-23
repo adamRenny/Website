@@ -1,19 +1,22 @@
 'use strict';
 
 var IS_PRODUCTION = require('./environment');
+var URLS = require('./urls');
 
 module.exports = {
     // Content Security Policy
     CSP: {
         // CSP Policy: http://www.w3.org/TR/CSP11/
-        policy: {
-            'default-src': '*',
-            'script-src': '\'self\' www.google-analytics.com \'unsafe-inline\'',
-            // Gif from Google Analytics
-            'img-src': '\'self\' data: www.google-analytics.com',
-            allow: '\'self\' www.google-analytics.com'
-        },
-        reportOnly: !IS_PRODUCTION
+        defaultSrc: '*',
+        scriptSrc: '\'self\' www.google-analytics.com \'unsafe-inline\'',
+        // Gif from Google Analytics
+        imgSrc: '\'self\' data: www.google-analytics.com',
+
+        // Can't remember why this was included
+        // allow: '\'self\' www.google-analytics.com',
+
+        reportOnly: !IS_PRODUCTION,
+        reportUri: URLS.URI.CSP_REPORT
     },
 
     // Only Allow opening from same origin
@@ -24,7 +27,7 @@ module.exports = {
     // Individual Analysis IVA
     // Individual Decision IVD
     // Location LOC
-    P3P: 'DEV IVA IVD LOC',
+    // P3P: 'DEV IVA IVD LOC',
 
     // XSS Protection Headers
     XSS_PROTECTION: true

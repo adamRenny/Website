@@ -135,7 +135,7 @@ function buildRouteHandlers(routeList) {
 function integrateAssetRoute(server) {
     server.route({
         method: 'GET',
-        path: URLS.ASSETS_PATH,
+        path: URLS.ROUTES.ASSETS,
         handler: {
             directory: {
                 path: PATHS.APP.ASSETS
@@ -153,6 +153,19 @@ function integrateRoutes(server, routes) {
     );
 }
 
+function buildRouteDictionary(routes) {
+    var routeDictionary = {};
+
+    _.each(
+        routes,
+        function(route) {
+            routeDictionary[route.name] = route.path;
+        }
+    );
+
+    return routeDictionary;
+}
+
 function setUp(server) {
     assert(server instanceof Hapi.Server, 'Expected server provided to be a Hapi Server');
 
@@ -167,10 +180,21 @@ function setUp(server) {
     integrateAssetRoute(server);
 
     integrateRoutes(server, routes);
+    this.routeDictionary = buildRouteDictionary(routeList);
+}
+
+function getURLForRoute(routeName) {
+    if (typeof this.routeDictionary[routeName] === 'undefined') {
+        return '#';
+    }
+
+    return this.routeDictionary[routeName];
 }
 
 _.merge(Router.prototype, {
-    setUp: setUp
+    setUp: setUp,
+
+    getURLForRoute: getURLForRoute
 });
 
 module.exports = new Router();
