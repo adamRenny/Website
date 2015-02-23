@@ -35,7 +35,7 @@ function prepareNameList() {
 function linkHelper(linkName) {
     var realLinkName = nameList[linkName];
     if (typeof realLinkName !== 'string') {
-        `.log('Could not find link for external link: ' + linkName);
+        console.log('Could not find link for external link: ' + linkName);
         return '#';
     }
 
