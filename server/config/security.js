@@ -27,7 +27,7 @@ module.exports = {
     // Individual Analysis IVA
     // Individual Decision IVD
     // Location LOC
-    // P3P: 'DEV IVA IVD LOC',
+    P3P: 'DEV IVA IVD LOC',
 
     // XSS Protection Headers
     XSS_PROTECTION: true

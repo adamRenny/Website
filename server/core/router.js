@@ -75,6 +75,10 @@ function loadRoutes(routeFilePaths) {
     );
 }
 
+function removeUniqueRoutes(routeList, otherRoutes) {
+    return _.difference(routeList, otherRoutes);
+}
+
 function validateRoutes(routeList) {
     function validateRoute(route) {
         assert(typeof route.path === 'string', 'Expected route to have a path');
@@ -114,7 +118,6 @@ function buildRouteHandlers(routeList) {
         );
 
         function routeHandler(request, reply) {
-            debugger;
             return controller[method](request, reply);
         }
 
@@ -132,6 +135,16 @@ function buildRouteHandlers(routeList) {
     );
 }
 
+function extractErrorRoute(routeList) {
+    return _.filter(
+        routeList,
+        function(route) {
+            return route.name === 'error';
+        }
+    );
+}
+
+// https://github.com/hapijs/hapi/commit/0eb9a62d4f34114846a72178a506f22f89d91663
 function integrateAssetRoute(server) {
     server.route({
         method: 'GET',
@@ -166,6 +179,48 @@ function buildRouteDictionary(routes) {
     return routeDictionary;
 }
 
+var ERROR_STATUS_CODES = {
+    NOT_FOUND: 400,
+    INTERNAL: 500
+};
+
+function isStatusErroneous(statusCode) {
+    return Math.floor(statusCode / ERROR_STATUS_CODES.NOT_FOUND) === 1 ||
+        Math.floor(statusCode / ERROR_STATUS_CODES.INTERNAL) === 1;
+}
+
+function getStatusCode(response) {
+    if (response instanceof Error) {
+        return response.output.statusCode;
+    }
+
+    return response.statusCode;
+}
+
+function onPreResponse(request, reply) {
+    request.response.header('P3P', 'CP="' + CONFIG.SECURITY.P3P + '"');
+    return reply['continue']();
+}
+
+function setUpExtensions(server, errorRoute) {
+    function onPostHandler(request, reply) {
+        var response = request.response;
+        var statusCode = getStatusCode(response);
+
+        if (!isStatusErroneous(statusCode)) {
+            return reply['continue']();
+        }
+
+        return errorRoute.handler(request, reply, statusCode);
+    }
+
+    // Handle the error and call out to the error route
+    server.ext('onPostHandler', onPostHandler);
+
+    // Prepare the P3P response header
+    server.ext('onPreResponse', onPreResponse);
+}
+
 function setUp(server) {
     assert(server instanceof Hapi.Server, 'Expected server provided to be a Hapi Server');
 
@@ -174,13 +229,18 @@ function setUp(server) {
     ]);
 
     var routeList = loadRoutes(routeFilePaths);
+    var errorRoute = extractErrorRoute(routeList);
+    routeList = removeUniqueRoutes(routeList, errorRoute);
+
     validateRoutes(routeList);
-    var routes = buildRouteHandlers(routeList)
+    var routes = buildRouteHandlers(routeList);
+    errorRoute = buildRouteHandlers(errorRoute);
 
     integrateAssetRoute(server);
-
     integrateRoutes(server, routes);
     this.routeDictionary = buildRouteDictionary(routeList);
+
+    setUpExtensions(server, errorRoute[0]);
 }
 
 function getURLForRoute(routeName) {
