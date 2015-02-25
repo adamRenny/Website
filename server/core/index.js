@@ -48,12 +48,7 @@ function startUp() {
 }
 
 function prepareServer() {
-    server = new Hapi.Server({
-        debug: {
-            log: ['error'],
-            request: ['error']
-        }
-    });
+    server = new Hapi.Server();
 
     web = server.connection({
         address: CONFIG.SERVER.IP_ADDRESS,

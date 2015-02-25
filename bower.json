@@ -1,6 +1,6 @@
 {
   "name": "adamRenny-Website",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "adamRenny's Personal Website",
   "dependencies": {
     "requirejs": "~2.1.14",
