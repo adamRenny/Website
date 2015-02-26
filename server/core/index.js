@@ -48,7 +48,16 @@ function startUp() {
 }
 
 function prepareServer() {
-    server = new Hapi.Server();
+    var options;
+    if (CONFIG.IS_PRODUCTION) {
+        options = {
+            debug: {
+                log: ['error'],
+                request: ['error']
+            }
+        };
+    }
+    server = new Hapi.Server(options);
 
     web = server.connection({
         address: CONFIG.SERVER.IP_ADDRESS,
