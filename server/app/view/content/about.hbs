@@ -1,3 +1,5 @@
+{{#extend "layout/base"}}
+    {{#content "content"}}
 <div itemtype="http://schema.org/Person" itemscope itemref="footerContent"
      role="article">
     <div class="content-block">
@@ -34,7 +36,7 @@
                    title="South Metro Ancient Authentic Arts"
                    target="_blank">Shorinkan Shorin Ryu Karate</a>
             </li>
-            <li>Practicing budoka of Katori Shinto Ryu Kenjutsu</li>
+            <li>Practicing Budoka of Katori Shinto Ryu Kenjutsu</li>
             </li>
             <li>Former Budoka of
                 <a href="{{ link 'toyamaRyuMn'}}"
@@ -53,3 +55,10 @@
         </ul>
     </div>
 </div>
+    {{/content}}
+
+    {{#extend "pieces/footer"}}
+        {{#content "scripts"}}
+        {{/content}}
+    {{/extend}}
+{{/extend}}

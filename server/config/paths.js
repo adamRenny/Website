@@ -21,7 +21,7 @@ module.exports = {
     RENDERER: {
         VIEWS: path.join(VIEW, 'content'),
         VIEW_HELPERS: path.join(VIEW, 'helper'),
-        LAYOUTS: path.join(VIEW, 'layout'),
+        LAYOUTS: path.join(VIEW, 'partial', 'layout'),
         PARTIALS: path.join(VIEW, 'partial')
     }
 };
