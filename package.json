@@ -34,7 +34,12 @@
     "lodash": "^3.1.0",
     "scooter": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-babel": "^4.0.0",
+    "grunt-contrib-less": "^1.0.0",
+    "load-grunt-tasks": "^3.1.0"
+  },
   "bundleDependencies": [],
   "private": true,
   "main": "server/main.js"
