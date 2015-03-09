@@ -4,6 +4,7 @@
   "description": "adamRenny's Personal Website",
   "dependencies": {
     "requirejs": "~2.1.14",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "jquery": "1.11.2"
   }
 }
