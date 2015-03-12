@@ -1,1 +1,0 @@
-{"version":3,"sources":["/Users/adam/Sites/renny/client/src/scripts/main.js"],"names":[],"mappings":";;;MAAO,CAAC;;AAER,SAAO,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC","file":"/Users/adam/Sites/renny/client/src/scripts/main.js","sourcesContent":["import $ from '../vendor/jquery/dist/jquery';\n\nconsole.log($);"]}
