@@ -8,23 +8,13 @@ The OpenShift `nodejs` cartridge documentation can be found at:
 
 https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-nodejs/README.md
 
-## Requirements
+## Adding a new page
+ 1. Add a new route to React Router
+ 1. Add a new controller with whatever prep is needed (server)
+ 1. Add a new view for rendering
 
-* Layouts
-  * Basic Content
-  * Lab Content
-* Pages
-  * About Page
-  * License Page
-  * Social Page
-  * Labs Page
-    * Canvas Shader Lab
-  * Blog Page
-    * Blog Driven by markdown (no images)
-      * Tagging
-* Technology
-  * Assets to be provided out either compiled or uncompiled
-    * Should produce a compiled doc under production
-    * Should use an uncompiled doc within development
-  * Templated System
-    * Handlebars
+## TODOs:
+ 1. Resolve markup inconsistency in PageWrapper (something's amiss)
+ 1. Figure out SVG xlink:href for SocialNavigation
+ 1. Add in routes for all navigation
+ 1. Add in asset paths for all site assets

@@ -1,6 +1,6 @@
 {
   "name": "adamRenny-Website",
-  "version": "2.0.0",
+  "version": "1.2.3",
   "description": "adamRenny's Personal Website",
   "license": "MIT",
   "keywords": [
@@ -23,27 +23,24 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
-    "blankie": "1.1.1",
-    "bluebird": "2.10.0",
-    "hapi": "10.0.0",
-    "react": "0.13.3",
-    "react-router": "0.13.3",
+    "blankie": "1.0.0",
+    "bluebird": "2.8.2",
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-less": "1.0.0",
+    "grunt-nsp-package": "0.0.5",
+    "handlebars": "3.0.0",
+    "handlebars-helpers": "0.5.8",
+    "hapi": "8.1.0",
+    "lodash": "3.1.0",
     "scooter": "2.0.1"
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "browserify": "^11.2.0",
-    "del": "^2.0.2",
-    "gulp": "3.9.0",
-    "gulp-babel": "5.2.1",
-    "gulp-less": "3.0.3",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.4.1",
-    "gulp-util": "^3.0.6",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "yargs": "^3.26.0"
+    "grunt": "0.4.5",
+    "grunt-babel": "4.0.0",
+    "grunt-contrib-less": "1.0.0",
+    "load-grunt-tasks": "3.1.0"
   },
   "bundleDependencies": [],
   "private": true,
