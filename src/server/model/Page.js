@@ -8,11 +8,9 @@ const DEFAULTS = {
 };
 
 export default class Page {
-    constructor({ title = '', content = '' } = {}) {
-        console.log('?!@#?');
+    constructor({ title = '', bodyScripts = [] } = {}) {
         this._title = title;
-
-        this._content = content;
+        this._bodyScripts = bodyScripts;
     }
 
     get title() {
@@ -23,7 +21,7 @@ export default class Page {
         return DEFAULTS.TITLE.PREFIX;
     }
 
-    get content() {
-        return this._content;
+    get scripts() {
+        return this._bodyScripts.slice(0);
     }
 };

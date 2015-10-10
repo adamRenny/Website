@@ -1,0 +1,10 @@
+'use strict';
+
+import React from 'react';
+import GeneralPageLayout from '../layout/GeneralPageLayout';
+
+export default ({ page }) => (
+    <GeneralPageLayout page={ page }>
+        <h1 className="hdg hdg_3">Content Not Found</h1>
+    </GeneralPageLayout>
+);

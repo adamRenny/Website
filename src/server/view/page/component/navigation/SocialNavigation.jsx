@@ -12,7 +12,7 @@ export default () => (
                        className="mainNav-social-ref"
                        target="_blank">
                         <span className="visuallyHidden">Github</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="vecIco vecIco_github mix-vecIco_small">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="vecIco vecIco_github mix-vecIco_small">
                             <use xlinkHref="#logo-github" />
                         </svg>
                     </a>
@@ -23,7 +23,7 @@ export default () => (
                        className="mainNav-social-ref"
                        target="_blank">
                         <span className="visuallyHidden">LinkedIn</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="vecIco vecIco_linkedin mix-vecIco_small">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="vecIco vecIco_linkedin mix-vecIco_small">
                             <use xlinkHref="#logo-linkedin" />
                         </svg>
                     </a>
@@ -34,7 +34,7 @@ export default () => (
                        className="mainNav-social-ref"
                        target="_blank">
                         <span className="visuallyHidden">npm</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="vecIco vecIco_npm mix-vecIco_small">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="vecIco vecIco_npm mix-vecIco_small">
                             <use xlinkHref="#logo-npm" />
                         </svg>
                     </a>
@@ -45,7 +45,7 @@ export default () => (
                        className="mainNav-social-ref"
                        target="_blank">
                         <span className="visuallyHidden">Twitter</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="vecIco vecIco_twitter mix-vecIco_small">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="vecIco vecIco_twitter mix-vecIco_small">
                             <use xlinkHref="#logo-twitter" />
                         </svg>
                     </a>
@@ -56,7 +56,7 @@ export default () => (
                        className="mainNav-social-ref"
                        target="_blank">
                         <span className="visuallyHidden">CodePen</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="vecIco vecIco_codepen mix-vecIco_small">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="vecIco vecIco_codepen mix-vecIco_small">
                             <use xlinkHref="#logo-codepen" />
                         </svg>
                     </a>
