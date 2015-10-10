@@ -24,3 +24,9 @@ node_modules/
 
 # Webstorm files
 .idea/workspace.xml
+
+# Built Files/Directory
+dest/server/
+dest/client/script/
+dest/client/style/
+dest/index.html

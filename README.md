@@ -14,7 +14,7 @@ https://github.com/openshift/origin-server/tree/master/cartridges/openshift-orig
  1. Add a new view for rendering
 
 ## TODOs:
- 1. Resolve markup inconsistency in PageWrapper (something's amiss)
- 1. Figure out SVG xlink:href for SocialNavigation
- 1. Add in routes for all navigation
- 1. Add in asset paths for all site assets
+ [x] Resolve markup inconsistency in PageWrapper (something's amiss) (Done)
+ [x] Figure out SVG xlink:href for SocialNavigation (Done)
+ [ ] Add in routes for all navigation
+ [ ] Add in asset paths for all site assets
