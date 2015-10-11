@@ -1,7 +1,7 @@
 'use strict';
 
 var CONFIG = require('./config/index');
-var core = require('./core/index');
+var bootstrap = require('./core/bootstrap');
 
 function onReceivedKillSignal(signal) {
     console.log(CONFIG.STRINGS.SERVER.ON_KILL, signal);
@@ -15,10 +15,10 @@ function processHasStopped() {
 // Setup all process failure events
 process.on('exit', processHasStopped);
 CONFIG.TEARDOWN_SIGNALS.forEach(function(signal) {
-    process.on(signal, onReceivedKillSignal.bind(global, signal));
+    process.on(signal, () => onReceivedKillSignal(signal));
 });
 
-core.prepareServer()
+bootstrap()
     .then(function() {
         console.log('Server Ready');
     });

@@ -25,13 +25,17 @@
   "dependencies": {
     "blankie": "1.1.x",
     "bluebird": "2.10.x",
+    "boom": "2.9.x",
     "hapi": "10.x.x",
     "hoek": "2.16.x",
     "inert": "3.1.x",
+    "items": "1.1.x",
+    "joi": "6.9.x",
     "react": "0.14.x",
     "react-dom": "0.14.x",
     "react-router": "1.0.0-rc3",
-    "scooter": "2.0.x"
+    "scooter": "2.0.x",
+    "vision": "3.0.x"
   },
   "devDependencies": {
     "babelify": "6.3.x",

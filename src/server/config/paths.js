@@ -3,7 +3,7 @@
 var path = require('path');
 
 var ROOT = path.join(__dirname, '..', '..');
-var APP = path.join(ROOT, 'server', 'app')
+var APP = path.join(ROOT, 'server');
 var VIEW = path.join(APP, 'view');
 var WEB = path.join(ROOT, 'client', 'web');
 
@@ -19,9 +19,7 @@ module.exports = {
     },
 
     RENDERER: {
-        VIEWS: path.join(VIEW, 'content'),
-        VIEW_HELPERS: path.join(VIEW, 'helper'),
-        LAYOUTS: path.join(VIEW, 'partial', 'layout'),
-        PARTIALS: path.join(VIEW, 'partial')
+        VIEWS: path.join(VIEW, 'page', 'route'),
+        LAYOUTS: path.join(VIEW, 'partial', 'layout')
     }
 };
