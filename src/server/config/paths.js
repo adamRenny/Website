@@ -19,7 +19,8 @@ module.exports = {
     },
 
     RENDERER: {
-        VIEWS: path.join(VIEW, 'page', 'route'),
+        VIEWS: VIEW,
+        ROUTES: path.join(VIEW, 'page', 'route'),
         LAYOUTS: path.join(VIEW, 'partial', 'layout')
     }
 };

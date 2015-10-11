@@ -6,18 +6,18 @@ import Hoek from 'hoek';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-var EXT_REGEX = new RegExp('\\.jsx$');
-var DEFAULTS = {
+const DEFAULTS = {
     doctype: '<!DOCTYPE html>',
     renderMethod: 'renderToStaticMarkup',
     isCached: false
 };
 
-function compile(template, compileOptions) {
+function compile(baseViewPath, template, compileOptions) {
     compileOptions = Hoek.applyToDefaults(DEFAULTS, compileOptions);
     let localCache = {
         Component: null,
-        Element: null
+        Element: null,
+        baseViewPath
     };
 
     return (context, renderOptions) => engineRuntime(localCache, compileOptions, context, renderOptions);
@@ -36,18 +36,22 @@ function engineRuntime(localCache, compileOptions, context, renderOptions) {
         localCache.Component = undefined;
         localCache.Element = undefined;
 
-        // TODO: Come back and revise the cache removal
-        Object.keys(require.cache).forEach(function (module) {
-
-            if (EXT_REGEX.test(module)) {
-                delete require.cache[module];
-            }
-        });
+        Object.keys(require.cache)
+            .filter((module) => module.indexOf(localCache.baseViewPath) === 0)
+            .forEach((module) => delete require.cache[module]);
     }
 
     return dest;
 }
 
-export default {
-    compile
-};
+function factory(viewPath) {
+    if (typeof viewPath !== 'string') {
+        viewPath = '.';
+    }
+
+    return {
+        compile: (template, compileOptions) => compile(viewPath, template, compileOptions)
+    };
+}
+
+export default factory;

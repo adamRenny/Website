@@ -3,7 +3,7 @@
 import CONFIG from '../config/index';
 import Promise from 'bluebird';
 import Hapi from 'hapi';
-import Renderer from './renderer';
+import makeRenderer from './renderer';
 
 import Vision from 'vision';
 import Scooter from 'scooter';
@@ -74,15 +74,12 @@ function bootstrap() {
         server.views({
             // Setup
             engines: {
-                js: Renderer
+                js: makeRenderer(CONFIG.RENDERER.PATHS.VIEWS)
             },
             context: CONFIG.RENDERER.VIEW_DEFAULTS,
-            // compileMode: CONFIG.RENDERER.COMPILE_MODE,
-
-            layout: false,
 
             // Paths
-            path: CONFIG.RENDERER.PATHS.VIEWS,
+            path: CONFIG.RENDERER.PATHS.ROUTES,
 
             isCached: CONFIG.IS_PRODUCTION
         });

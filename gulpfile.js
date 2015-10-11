@@ -51,6 +51,8 @@ gulp.task('client:script', function() {
     .pipe(gulp.dest(CONFIG.DEST_SCRIPT));
 });
 
+// TODO: Separate out script from template build
+// TODO: Add in builds for shared scripts
 gulp.task('server:script', function() {
     return gulp.src(path.join(CONFIG.SOURCE_SERVER, '**', '*.{js,jsx}'))
         .pipe(babel())
