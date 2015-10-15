@@ -1,24 +1,48 @@
 'use strict';
 
-var CONFIG = require('./config/index');
-var bootstrap = require('./core/bootstrap');
+import config from './config';
+import bootstrap from './bootstrap';
+import Promise from 'bluebird';
+
+const TEARDOWN_SIGNALS = [
+    'SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
+    'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
+];
 
 function onReceivedKillSignal(signal) {
-    console.log(CONFIG.STRINGS.SERVER.ON_KILL, signal);
+    console.log('Received %s - terminating node server ...', signal);
     process.exit(1);
 }
 
 function processHasStopped() {
-    console.log(CONFIG.STRINGS.SERVER.PROCESS_TERMINATED);
+    console.log('Node server stopped.');
 }
 
 // Setup all process failure events
 process.on('exit', processHasStopped);
-CONFIG.TEARDOWN_SIGNALS.forEach(function(signal) {
-    process.on(signal, () => onReceivedKillSignal(signal));
-});
+TEARDOWN_SIGNALS.forEach((signal) => process.on(
+    signal,
+    () => onReceivedKillSignal(signal)
+));
 
 bootstrap()
-    .then(function() {
-        console.log('Server Ready');
-    });
+    .then(
+        ({error, server}) => {
+            if (error) {
+                console.log('Could not start server');
+                Promise.reject(error);
+            }
+
+            return new Promise((resolve) => {
+                server.start(resolve);
+            });
+        }
+    )
+    .then(
+        () => {
+            console.log('Node server started on %s:%d ...', config.get('/connections/web/ipAddress'), config.get('/connections/web/port'));
+        },
+        (error) => {
+            console.error(error);
+        }
+    );

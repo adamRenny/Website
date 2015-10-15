@@ -26,6 +26,8 @@
     "blankie": "1.1.x",
     "bluebird": "2.10.x",
     "boom": "2.9.x",
+    "confidence": "1.4.x",
+    "glue": "2.3.x",
     "hapi": "10.x.x",
     "hoek": "2.16.x",
     "inert": "3.1.x",
