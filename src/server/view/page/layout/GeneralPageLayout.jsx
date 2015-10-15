@@ -7,6 +7,8 @@ import SkipNavigation from '../component/navigation/SkipNavigation';
 import PageWrapper from '../component/PageWrapper';
 import Footer from '../component/Footer';
 
+import assetService from '../../../module/assets/service';
+
 export default class GeneralPageLayout extends React.Component {
     render() {
         return (
@@ -23,7 +25,7 @@ export default class GeneralPageLayout extends React.Component {
 
                     <meta name="robots" content="index,follow" />
 
-                    <link rel="icon" href="favicon.ico"
+                    <link rel="icon" href={ assetService.buildURI('media/favicon/favicon.ico') }
                           sizes="16x16 32x32 48x48 64x64"
                           type="image/vnd.microsoft.icon" />
 
@@ -41,7 +43,7 @@ export default class GeneralPageLayout extends React.Component {
                     <meta name="viewport"
                           content="width=device-width, user-scalable=no" />
 
-                    <link href="http://site.adamrenny.me/assets/styles/screen.css"
+                    <link href={ assetService.buildURI('/style/screen.css') }
                           rel="stylesheet"
                           media="screen" />
         {/*

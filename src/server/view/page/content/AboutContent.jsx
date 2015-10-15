@@ -1,6 +1,9 @@
 'use strict';
 
 import React from 'react';
+import config from '../../../config';
+
+import assetService from '../../../module/assets/service';
 
 export default () => (
     <div itemType="http://schema.org/Person" itemScope itemRef="footerContent"
@@ -8,7 +11,7 @@ export default () => (
         <div className="content-block">
             <div className="media media_vCenter">
                 <div className="media-img">
-                    <img src="http://adamrenny.me/media/img/8bit.png" alt="8-bit Profile" />
+                    <img src={ assetService.buildURI('media/img/8bit.png') } alt="8-bit Profile" />
                 </div>
                 <div className="media-bd">
                     <h2 className="hdg hdg_3">
@@ -27,7 +30,7 @@ export default () => (
                     <a href="http://gamefaqs.com"
                        title="Greatest Video Game Resource"
                        target="_blank">Video</a>,&nbsp;
-                    <a href="#"
+                    <a href={ config.get('/urls/social/deckbox') }
                        title="Magic, the Gathering"
                        target="_blank">Card</a>, and Board
                 </li>
@@ -35,19 +38,19 @@ export default () => (
                 <li>Loving Husband</li>
                 <li>Proud <span itemProp="homeLocation">Minnesota</span>n</li>
                 <li>Practicing Karateka of&nbsp;
-                    <a href="#"
+                    <a href={ config.get('/urls/affiliations/karate') }
                        title="South Metro Ancient Authentic Arts"
                        target="_blank">Shorinkan Shorin Ryu Karate</a>
                 </li>
                 <li>Practicing Budoka of Katori Shinto Ryu Kenjutsu</li>
                 <li>Former Budoka of&nbsp;
-                    <a href="#"
+                    <a href={ config.get('/urls/affiliations/toyama') }
                        title="Minnesota Toyama Ryu Battojutsu"
                        target="_blank">Toyama Ryu Battojutsu</a>
                 </li>
                 <li>
                     Alumni of&nbsp;
-                    <a href="#"
+                    <a href={ config.get('/urls/affiliations/umn') }
                        title="University of Minnesota, Twin Cities"
                        target="_blank">
                         <span itemProp="alumniOf">University of Minnesota</span>

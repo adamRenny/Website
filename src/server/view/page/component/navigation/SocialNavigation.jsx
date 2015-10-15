@@ -1,13 +1,14 @@
 'use strict';
 
 import React from 'react';
+import config from '../../../../config';
 
 export default () => (
     <div className="mainNav-social">
         <div className="sleeve">
             <ul className="hList mix-hList_smallCentered hList_spacedSm">
                 <li>
-                    <a href="/"
+                    <a href={ config.get('/urls/social/github') }
                        title="Watch my Github repositories"
                        className="mainNav-social-ref"
                        target="_blank">
@@ -18,7 +19,7 @@ export default () => (
                     </a>
                 </li>
                 <li>
-                    <a href="/"
+                    <a href={ config.get('/urls/social/linkedin') }
                        title="Check out my LinkedIn"
                        className="mainNav-social-ref"
                        target="_blank">
@@ -29,7 +30,7 @@ export default () => (
                     </a>
                 </li>
                 <li>
-                    <a href="/"
+                    <a href={ config.get('/urls/social/npm') }
                        title="Try my NPM packages"
                        className="mainNav-social-ref"
                        target="_blank">
@@ -40,7 +41,7 @@ export default () => (
                     </a>
                 </li>
                 <li>
-                    <a href="/"
+                    <a href={ config.get('/urls/social/twitter') }
                        title="Follow me on Twitter"
                        className="mainNav-social-ref"
                        target="_blank">
@@ -51,7 +52,7 @@ export default () => (
                     </a>
                 </li>
                 <li>
-                    <a href="/"
+                    <a href={ config.get('/urls/social/codepen') }
                        title="Check out my CodePens"
                        className="mainNav-social-ref"
                        target="_blank">

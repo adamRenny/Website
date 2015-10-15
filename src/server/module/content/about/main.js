@@ -1,7 +1,8 @@
 import Page from '../../../model/Page';
+import config from '../../../config';
 
 function register(server, options, next) {
-    var connection = server.select('web');
+    var connection = server.select(config.get('/connections/web/label'));
 
     connection.route({
         // name: 'index',

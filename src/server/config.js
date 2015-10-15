@@ -8,6 +8,7 @@ const CRITERIA = {
 const ROOT = path.join(__dirname, '..', '..');
 const SRC = path.join(ROOT, 'src');
 const DEST = path.join(ROOT, 'dest');
+const CLIENT = path.join(DEST, 'client');
 const APP = path.join(DEST, 'server');
 const VIEW = path.join(APP, 'view');
 
@@ -17,6 +18,7 @@ const CONFIG = {
 
     connections: {
         web: {
+            label: 'web',
             ipAddress: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
             port: parseInt(process.env.OPENSHIFT_NODEJS_PORT, 10) || 3000
         }
@@ -30,9 +32,7 @@ const CONFIG = {
         app: {
             root: APP,
             routes: path.join(APP, 'route'),
-            controllers: path.join(APP, 'controller'),
-            models: path.join(APP, 'model'),
-            assets: DEST
+            assets: CLIENT
         },
 
         renderer: {
@@ -50,6 +50,22 @@ const CONFIG = {
             assets: '/assets',
             base: '/',
             cspReport: '/cspLog'
+        },
+
+        social: {
+            deckbox: 'https://deckbox.org/users/adamRenny',
+            github: 'https://github.com/adamRenny',
+            linkedin: 'https://www.linkedin.com/in/adamrenny',
+            npm: 'https://www.npmjs.org/~adamrenny',
+            twitter: 'https://twitter.com/AdamRenny',
+            codepen: 'http://codepen.io/adamRenny/'
+        },
+
+        affiliations: {
+            // Extra Curricular Activities
+            karate: 'http://southmetrokarate.com/',
+            toyama: 'http://www.seiryuukandojo.com/',
+            umn: 'http://umn.edu'
         }
     }
 };

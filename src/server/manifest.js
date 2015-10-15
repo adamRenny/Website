@@ -29,7 +29,7 @@ const MANIFEST = {
             address: config.get('/connections/web/ipAddress'),
             port: config.get('/connections/web/port'),
             labels: [
-                'web'
+                config.get('/connections/web/label')
             ],
 
             routes: {
@@ -65,9 +65,12 @@ const MANIFEST = {
         },
 
         'vision': null,
+        'inert': null,
 
         './module/renderer/main': null,
-        './module/content/about/main': null
+        './module/content/about/main': null,
+
+        './module/assets/main': null
     }
 };
 
