@@ -17,5 +17,5 @@ https://github.com/openshift/origin-server/tree/master/cartridges/openshift-orig
  [x] Resolve markup inconsistency in PageWrapper (something's amiss) (Done)
  [x] Figure out SVG xlink:href for SocialNavigation (Done)
  [x] Add plugin server system based on [Aqua](https://github.com/jedireza/aqua/)
- [ ] Add in routes for all navigation
- [ ] Add in asset paths for all site assets
+ [x] Add in routes for all navigation
+ [x] Add in asset paths for all site assets

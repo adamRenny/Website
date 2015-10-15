@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import GeneralPageLayout from '../layout/GeneralPageLayout';
+import GeneralPageLayout from '../../layout/GeneralPageLayout';
 
 export default ({ page }) => (
     <GeneralPageLayout page={ page }>

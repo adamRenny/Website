@@ -5,13 +5,15 @@ function register(server, options, next) {
     var connection = server.select(config.get('/connections/web/label'));
 
     connection.route({
-        path: '/',
+        path: '/license',
         method: 'GET',
         handler: (request, reply) => {
             var content = reply.view(
-                'AboutRoute',
-                {
-                    page: new Page()
+                'LicenseRoute',
+                { 
+                    page: new Page({
+                        title: 'License'
+                    })
                 }
             );
             return content;
@@ -22,7 +24,7 @@ function register(server, options, next) {
 }
 
 register.attributes =  {
-    name: 'content-about',
+    name: 'content-license',
     dependencies: 'react-renderer'
 };
 

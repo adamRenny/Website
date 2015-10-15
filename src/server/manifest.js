@@ -46,6 +46,7 @@ const MANIFEST = {
 
     // 'moduleName' : {}:options
     plugins: {
+        // Basic Security, dependency of scooter
         'blankie': null,
 
         // Content Security Policy
@@ -54,7 +55,7 @@ const MANIFEST = {
             // CSP Policy: http://www.w3.org/TR/CSP11/
             defaultSrc: '*',
             scriptSrc: '\'self\' www.google-analytics.com \'unsafe-inline\'',
-            // Gif from Google Analytics
+            // To support gif from Google Analytics
             imgSrc: '\'self\' data: www.google-analytics.com',
 
             // Can't remember why this was included
@@ -64,13 +65,24 @@ const MANIFEST = {
             reportUri: config.get('/urls/uri/cspReport')
         },
 
+        // Custom Renderer Setup
         'vision': null,
+
+        // File I/O
         'inert': null,
 
-        './module/renderer/main': null,
-        './module/content/about/main': null,
+        // Asset Modules
+        './module/assets/main': null,
 
-        './module/assets/main': null
+        // Rendering Modules
+        './module/renderer/main': null,
+
+        // Content Modules
+        './module/content/about/main': null,
+        './module/content/license/main': null,
+
+        // Error Handling
+        './module/error/main': null
     }
 };
 
