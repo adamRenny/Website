@@ -2,9 +2,10 @@ import config from '../../config';
 import rendererFactory from './renderer';
 
 function register(server, options, next) {
-    server.dependency('vision');
-
-    console.log('renderer');
+    
+    // Use the server root to expose the renderer outside of the plugin
+    // Other plugins can't render against engine without using the root
+    // @see https://github.com/hapijs/hapi/issues/2278
     server.root.views({
         // Setup
         engines: {
@@ -19,12 +20,13 @@ function register(server, options, next) {
 
         isCached: config.get('/isProduction')
     });
-
-    next();
+    
+    return next();
 }
 
 register.attributes = {
-    name: 'react-renderer'
+    name: 'react-renderer',
+    dependencies: 'vision'
 };
 
 export default register;

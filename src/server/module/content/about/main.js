@@ -8,18 +8,17 @@ function register(server, options, next) {
         path: '/',
         method: 'GET',
         handler: (request, reply) => {
-            console.log('...?');
             var content = reply.view('AboutRoute', { page: new Page() });
-            console.log('got content');
             return content;
         }
     });
 
-    next();
+    return next();
 }
 
 register.attributes =  {
-    name: 'content-about'
+    name: 'content-about',
+    dependencies: 'react-renderer'
 };
 
 export default register;
