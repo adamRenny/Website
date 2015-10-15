@@ -2,7 +2,10 @@
   "name": "adamRenny-Website",
   "version": "2.0.0",
   "description": "adamRenny's Personal Website",
-  "license": "MIT",
+  "licenses": {
+    "type": "BSD-3-Clause",
+    "url": "https://adamrenny.me/license"
+  },
   "keywords": [
     "renny",
     "adamrenny",
