@@ -1,6 +1,19 @@
 import config from '../../config';
 import rendererFactory from './renderer';
 
+/**
+ * Core Plugin
+ * Custom React Renderer setup
+ * Hooks into the root of the server to avoid isolated plugin access
+ *
+ * Used only on the web connection
+ *
+ * @class ReactRendererPlugin
+ * @constructor
+ * @param {Hapi.Server} server Server attached to
+ * @param {object} options Registration options
+ * @param {function} next Next function called when complete
+ */
 function register(server, options, next) {
     
     // Use the server root to expose the renderer outside of the plugin
@@ -25,7 +38,22 @@ function register(server, options, next) {
 }
 
 register.attributes = {
+    /**
+     * Runtime name of the plugin
+     *
+     * @for ReactRendererPlugin
+     * @property name
+     * @type {string}
+     */
     name: 'react-renderer',
+
+    /**
+     * Properties required before using the plugin
+     *
+     * @for ReactRendererPlugin
+     * @property dependencies
+     * @type {string|string[]}
+     */
     dependencies: 'vision'
 };
 
