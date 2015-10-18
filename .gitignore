@@ -23,7 +23,7 @@ build/Release
 node_modules/
 
 # Webstorm files
-.idea/workspace.xml
+.idea
 
 # Built Files/Directory
 dest/server/
