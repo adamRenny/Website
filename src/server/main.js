@@ -1,19 +1,52 @@
-'use strict';
+/**
+ * Server component used to run the server side of the application
+ *
+ * @module Server
+ */
 
 import config from './config';
 import bootstrap from './bootstrap';
 import Promise from 'bluebird';
 
+/**
+ * OS level signals used to mark as a teardown
+ * Provided from Openshift
+ *
+ * Likely limited to *nix, untested for Windows
+ *
+ * @for Server
+ * @private
+ * @property TEARDOWN_SIGNALS
+ * @static
+ * @final
+ */
 const TEARDOWN_SIGNALS = [
     'SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
     'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
 ];
 
+/**
+ * Signal -> termination handler
+ *
+ * Kills the process after completion
+ *
+ * @for Server
+ * @private
+ * @method onReceivedKillSignal
+ * @param {string} signal Signal received
+ */
 function onReceivedKillSignal(signal) {
     console.log('Received %s - terminating node server ...', signal);
     process.exit(1);
 }
 
+/**
+ * Final termination handler
+ *
+ * @for Server
+ * @private
+ * @method processHasStopped
+ */
 function processHasStopped() {
     console.log('Node server stopped.');
 }
@@ -25,6 +58,7 @@ TEARDOWN_SIGNALS.forEach((signal) => process.on(
     () => onReceivedKillSignal(signal)
 ));
 
+// Initialize the server
 bootstrap()
     .then(
         ({error, server}) => {
