@@ -10,6 +10,7 @@ import SocialNavigation from './navigation/SocialNavigation';
  *
  * @class Footer
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div className="footer" id="footer">

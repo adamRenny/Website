@@ -10,6 +10,7 @@ import config from '../../../../config';
  *
  * @class SkipNavigation
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div className="mainNav-social">

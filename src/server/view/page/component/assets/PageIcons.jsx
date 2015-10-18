@@ -7,6 +7,7 @@ import React from 'react';
  * Should be included only once per page
  *
  * @class PageIcons
+ * @constructor
  */
 export default () => (
     <svg xmlns="http://www.w3.org/2000/svg"

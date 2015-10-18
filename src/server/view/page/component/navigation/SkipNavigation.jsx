@@ -8,6 +8,7 @@ import React from 'react';
  *
  * @class SkipNavigation
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div className="skipNav">

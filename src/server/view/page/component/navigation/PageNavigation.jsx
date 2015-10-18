@@ -8,6 +8,7 @@ import React from 'react';
  *
  * @class PageNavigation
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div className="mainNav-pages">

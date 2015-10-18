@@ -8,6 +8,7 @@ import React from 'react';
  *
  * @class LicenseContent
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div role="article"

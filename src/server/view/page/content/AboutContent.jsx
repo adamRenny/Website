@@ -12,6 +12,7 @@ import assetService from '../../../module/assets/service';
  *
  * @class AboutContent
  * @extends React.Component
+ * @constructor
  */
 export default () => (
     <div itemType="http://schema.org/Person" itemScope itemRef="footerContent"

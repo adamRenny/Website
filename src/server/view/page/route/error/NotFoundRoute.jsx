@@ -9,6 +9,9 @@ import GeneralPageLayout from '../../layout/GeneralPageLayout';
  *
  * @class NotFoundRoute
  * @extends React.Component
+ * @constructor
+ * @param {object} options
+ * @param {Page} [options.page] Page to render with
  */
 export default ({ page }) => (
     <GeneralPageLayout page={ page }>
