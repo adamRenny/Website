@@ -1,7 +1,14 @@
-'use strict';
-
 import React from 'react';
 
+/**
+ * Server-level React Component
+ * Navigation list component
+ *
+ * State-less React component
+ *
+ * @class PageNavigation
+ * @extends React.Component
+ */
 export default () => (
     <div className="mainNav-pages">
         <div className="sleeve">

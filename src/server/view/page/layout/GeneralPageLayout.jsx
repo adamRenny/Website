@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 
 import PageIcons from '../component/assets/PageIcons';
@@ -9,13 +7,35 @@ import Footer from '../component/Footer';
 
 import assetService from '../../../module/assets/service';
 
+/**
+ * Server-level React Component
+ * Standard page layout structure
+ *
+ * Used to set up the markup
+ * Expects a page property following the Page object
+ *
+ * @see Page
+ *
+ * @class GeneralPageLayout
+ * @extends React.Component
+ */
 export default class GeneralPageLayout extends React.Component {
+    /**
+     * Render method to generate the page layout
+     * Expects children
+     *
+     * @for GeneralPageLayout
+     * @method render
+     */
     render() {
         return (
             <html lang="en">
+                {/* Page head */}
                 <head>
+                    {/* Charset */}
                     <meta charSet="utf-8" />
                     
+                    {/* Basic Page Metadata */}
                     <meta name="description"
                           content="Adam Renny's development website, a testbed for experiments" />
                     <meta name="author"
@@ -23,12 +43,15 @@ export default class GeneralPageLayout extends React.Component {
 
                     <title>{ this.props.page.title }</title>
 
+                    {/* Robots metadata */}
                     <meta name="robots" content="index,follow" />
 
+                    {/* Favicon */}
                     <link rel="icon" href={ assetService.buildURI('media/favicon/favicon.ico') }
                           sizes="16x16 32x32 48x48 64x64"
                           type="image/vnd.microsoft.icon" />
 
+                    {/* Facebook Properties */}
                     <meta property="og:title"
                           content="adamRenny" />
                     <meta property="og:type"
@@ -40,12 +63,15 @@ export default class GeneralPageLayout extends React.Component {
                     <meta property="og:url"
                           content="http://site.adamrenny.me/" />
 
+                    {/* Mobile Viewport Properties */}
                     <meta name="viewport"
                           content="width=device-width, user-scalable=no" />
 
+                    {/* Styles Properties */}
                     <link href={ assetService.buildURI('/style/screen.css') }
                           rel="stylesheet"
                           media="screen" />
+                }
         {/*
                     <script>
                         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -57,6 +83,9 @@ export default class GeneralPageLayout extends React.Component {
                     </script>
         */}
                 </head>
+                {/* End Page head */}
+
+                {/* Page body */}
                 <body>
                     <PageIcons />
 
@@ -68,13 +97,16 @@ export default class GeneralPageLayout extends React.Component {
 
                     <Footer />
 
+                    {/* Scripts Render Location */}
                     { this.props.page.scripts.map(function(sourcePath) {
                         return (
                             <script src={ sourcePath }></script>
                         );
                       })
                     }
+                    {/* End Scripts Render Location */}
                 </body>
+                {/* End Page body */}
             </html>
         );
     }

@@ -1,10 +1,24 @@
-'use strict';
-
 import React from 'react';
 import PageNavigation from './navigation/PageNavigation';
 import SocialNavigation from './navigation/SocialNavigation';
 
+/**
+ * Server-level React Component
+ * Page wrapper to wrap content
+ *
+ * Used to organize the basic page structure
+ *
+ * @class PageWrapper
+ * @extends React.Component
+ */
 export default class PageWrapper extends React.Component {
+    /**
+     * Render method to generate the page layout
+     * Expects children
+     *
+     * @for GeneralPageLayout
+     * @method render
+     */
     render() {
         return (
             <div className="wrap">

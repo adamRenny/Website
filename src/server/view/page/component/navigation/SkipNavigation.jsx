@@ -1,7 +1,14 @@
-'use strict';
-
 import React from 'react';
 
+/**
+ * Server-level React Component
+ * Skip Navigation (accessibility)
+ *
+ * State-less React component
+ *
+ * @class SkipNavigation
+ * @extends React.Component
+ */
 export default () => (
     <div className="skipNav">
         <a href="#content" accessKey="H">Skip to Main Content</a>

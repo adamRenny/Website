@@ -1,7 +1,13 @@
-'use strict';
-
 import React from 'react';
 
+/**
+ * Server-level React Component
+ * SVG Definitions for symbols on the page
+ *
+ * Should be included only once per page
+ *
+ * @class PageIcons
+ */
 export default () => (
     <svg xmlns="http://www.w3.org/2000/svg"
          version="1.1"

@@ -1,13 +1,22 @@
-'use strict';
-
 import React from 'react';
 import config from '../../../config';
 
 import assetService from '../../../module/assets/service';
 
+/**
+ * Server-level React Component
+ * About Content
+ * Includes microdata information
+ *
+ * State-less React component
+ *
+ * @class AboutContent
+ * @extends React.Component
+ */
 export default () => (
     <div itemType="http://schema.org/Person" itemScope itemRef="footerContent"
          role="article">
+        {/* Content Heading */}
         <div className="content-block">
             <div className="media media_vCenter">
                 <div className="media-img">
@@ -20,6 +29,8 @@ export default () => (
                 </div>
             </div>
         </div>
+
+        {/* Description List */}
         <div className="content-block">
             <ul className="content-block-list">
                 <li title="Currently not seeking other opportunities">

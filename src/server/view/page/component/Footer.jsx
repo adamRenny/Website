@@ -1,9 +1,16 @@
-'use strict';
-
 import React from 'react';
 import PageNavigation from './navigation/PageNavigation';
 import SocialNavigation from './navigation/SocialNavigation';
 
+/**
+ * Server-level React Component
+ * Sticky footer and copyright
+ *
+ * State-less React component
+ *
+ * @class Footer
+ * @extends React.Component
+ */
 export default () => (
     <div className="footer" id="footer">
         {/* Footer Navigation */}

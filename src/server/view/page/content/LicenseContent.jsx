@@ -1,7 +1,14 @@
-'use strict';
-
 import React from 'react';
 
+/**
+ * Server-level React Component
+ * BSD-3 License
+ *
+ * State-less React component
+ *
+ * @class LicenseContent
+ * @extends React.Component
+ */
 export default () => (
     <div role="article"
        className="article">
