@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 /**
  * Server-level React Component
@@ -12,7 +13,10 @@ import React from 'react';
  */
 export default class October2015Game extends React.Component {
     componentDidMount() {
-        console.log('test');
+        console.log('test - its mounted~');
+        this.props.game.attach(
+            ReactDOM.findDOMNode(this)
+        );
     }
 
     render() {

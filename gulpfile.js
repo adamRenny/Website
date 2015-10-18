@@ -30,7 +30,6 @@ var shouldCleanAfterCompilation = false;
 
 gulp.task('client:script', function() {
     var tasks = CONFIG.CLIENT_SCRIPTS.map(function(entry) {
-        console.log(entry, CONFIG.DEST_SCRIPT);
         return browserify({
                 entries: [ path.join(CONFIG.SOURCE_SCRIPT, entry) ],
                 extensions: ['.js', '.jsx'],
@@ -42,7 +41,8 @@ gulp.task('client:script', function() {
                     'error',
                     gulpUtil.log.bind(gulpUtil, 'Browserify error')
                 )
-            .pipe(source(entry))
+            // Make sure it writes to a JS file
+            .pipe(source(entry.replace('.jsx', '.js')))
             .pipe(buffer())
                 .pipe(
                     sourcemaps.init({
@@ -55,6 +55,11 @@ gulp.task('client:script', function() {
     });
 
     return eventStream.merge.apply(null, tasks);
+});
+
+gulp.task('client:script:copy', function() {
+    return gulp.src(path.join('node_modules', 'phaser', 'build', 'phaser.js'))
+        .pipe(gulp.dest(CONFIG.DEST_SCRIPT));
 });
 
 // TODO: Separate out script from template build
@@ -85,7 +90,7 @@ gulp.task('client:style', function() {
         .pipe(gulp.dest(CONFIG.DEST_STYLE));
 });
 
-gulp.task('client', ['client:script', 'client:style']);
+gulp.task('client', ['client:script', 'client:style', 'client:script:copy']);
 gulp.task('server', ['server:script', 'server:views:shared']);
 
 gulp.task('default', ['client', 'server']);
