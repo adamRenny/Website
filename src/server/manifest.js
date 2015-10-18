@@ -444,6 +444,20 @@ const MANIFEST = {
 
         /**
          * Plugin module
+         * Lab section of the project
+         * Likely overengineered and candidate for refactor
+         *
+         * @for manifest
+         * @private
+         * @property ./module/content/lab/main
+         * @type {object}
+         * @static
+         * @final
+         */
+        './module/content/lab/main': null,
+
+        /**
+         * Plugin module
          * Human readable error handling
          *
          * @for manifest

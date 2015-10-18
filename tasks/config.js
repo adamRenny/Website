@@ -28,11 +28,16 @@ var DEST_SERVER = path.join(DEST_DIRECTORY, SERVER_SUBDIRECTORY);
 var DEST_SERVER_VIEW = path.join(DEST_DIRECTORY, SERVER_SUBDIRECTORY, VIEW_SUBDIRECTORY);
 
 module.exports = {
+    // Compilation Files
+    CLIENT_SCRIPTS: [
+        'main.js',
+        '102015Game.js'
+    ],
+
     // Primary Directories
     SOURCE_DIRECTORY: SOURCE_DIRECTORY,
     DEST_DIRECTORY: DEST_DIRECTORY,
 
-    MAIN_SCRIPT: MAIN_SCRIPT,
     MAIN_STYLE: MAIN_STYLE,
 
     // Subdirectories

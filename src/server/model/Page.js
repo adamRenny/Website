@@ -53,6 +53,34 @@ export default class Page {
          * @default []
          */
         this._bodyScripts = bodyScripts;
+
+        this._prepareBodyScripts();
+    }
+
+    /**
+     * Initialization support method
+     * Used to validate each of the script items is prepared as a React-prepared
+     * React lists must be objects that include keys
+     *
+     * @private
+     * @for Page
+     * @method _prepareBodyScripts
+     */
+    _prepareBodyScripts() {
+        let isValid = this._bodyScripts.every(
+            (scriptItem) => typeof scriptItem === 'object' && typeof scriptItem.key !== 'undefined'
+        );
+
+        if (!isValid) {
+            this._bodyScripts = this._bodyScripts.map(
+                (scriptItem, index) => {
+                    return {
+                        key: 'script-' + index,
+                        source: scriptItem
+                    };
+                }
+            );
+        }
     }
 
     /**

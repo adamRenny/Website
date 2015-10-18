@@ -97,9 +97,9 @@ export default class GeneralPageLayout extends React.Component {
                     <Footer />
 
                     {/* Scripts Render Location */}
-                    { this.props.page.scripts.map(function(sourcePath) {
+                    { this.props.page.scripts.map(function(pageScript) {
                         return (
-                            <script src={ sourcePath }></script>
+                            <script key={ pageScript.key } src={ pageScript.source }></script>
                         );
                       })
                     }

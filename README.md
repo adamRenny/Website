@@ -15,10 +15,11 @@ https://github.com/openshift/origin-server/tree/master/cartridges/openshift-orig
  1. Add a new view for rendering
  1. Add new route for the plugin
  1. Add route paths to the shared view layer
+ 1. Add the file to be compiled for that page into `/tasks/config.js` `CLIENT_SCRIPTS`
 
 ## TODO
  [ ] Refactor LESS structure based on feedback
- [ ] Shared React view transpilation
+ [x] Shared React view transpilation
  [ ] Move microdata into head if at all possible
  [ ] Rework layout schema to have a layout and page be different and configurable
  [ ] Add a dependency injector for various module services and views

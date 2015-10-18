@@ -13,6 +13,7 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var argv = require('yargs').argv;
 var browserify = require('browserify');
+var eventStream = require('event-stream');
 
 var path = require('path');
 
@@ -28,27 +29,32 @@ var shouldMinify = isProd;
 var shouldCleanAfterCompilation = false;
 
 gulp.task('client:script', function() {
-    return browserify({
-        entries: CONFIG.SOURCE_SCRIPT_MAIN,
-        extensions: ['.js', '.jsx'],
-        debug: true
-    })
-    .transform(babelify)
-    .bundle()
-        .on(
-            'error',
-            gulpUtil.log.bind(gulpUtil, 'Browserify error')
-        )
-    .pipe(source(CONFIG.MAIN_SCRIPT))
-    .pipe(buffer())
-        .pipe(
-            sourcemaps.init({
-                loadMaps: true
+    var tasks = CONFIG.CLIENT_SCRIPTS.map(function(entry) {
+        console.log(entry, CONFIG.DEST_SCRIPT);
+        return browserify({
+                entries: [ path.join(CONFIG.SOURCE_SCRIPT, entry) ],
+                extensions: ['.js', '.jsx'],
+                debug: true
             })
-        )
-            .pipe(shouldMinify ? uglify() : gulpUtil.noop())
-        .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(CONFIG.DEST_SCRIPT));
+            .transform(babelify)
+            .bundle()
+                .on(
+                    'error',
+                    gulpUtil.log.bind(gulpUtil, 'Browserify error')
+                )
+            .pipe(source(entry))
+            .pipe(buffer())
+                .pipe(
+                    sourcemaps.init({
+                        loadMaps: true
+                    })
+                )
+                    .pipe(shouldMinify ? uglify() : gulpUtil.noop())
+                .pipe(sourcemaps.write('./'))
+            .pipe(gulp.dest(CONFIG.DEST_SCRIPT));
+    });
+
+    return eventStream.merge.apply(null, tasks);
 });
 
 // TODO: Separate out script from template build
@@ -58,6 +64,13 @@ gulp.task('server:script', function() {
         .pipe(babel())
         .pipe(gulp.dest(CONFIG.DEST_SERVER));
 });
+
+gulp.task('server:views:shared', function() {
+
+    return gulp.src(path.join(CONFIG.SOURCE_SHARED_VIEW, '**', '*.jsx'))
+        .pipe(babel())
+        .pipe(gulp.dest(path.join(CONFIG.DEST_SERVER_VIEW, 'shared')));
+})
 
 gulp.task('client:style', function() {
     return gulp.src(CONFIG.SOURCE_STYLE_MAIN)
@@ -73,6 +86,6 @@ gulp.task('client:style', function() {
 });
 
 gulp.task('client', ['client:script', 'client:style']);
-gulp.task('server', ['server:script']);
+gulp.task('server', ['server:script', 'server:views:shared']);
 
 gulp.task('default', ['client', 'server']);
