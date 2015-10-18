@@ -4,7 +4,7 @@ import path from 'path';
 /**
  * Criteria for which version of the CONFIG to provide
  *
- * @see Confidence
+ * @see Confidence <https://github.com/hapijs/confidence>
  */
 const CRITERIA = {
     ENVIRONMENT: process.env.NODE_ENV
@@ -98,6 +98,7 @@ const VIEW = path.join(APP, 'view');
  * Confidence based configuration
  * Used to define the configuration for the server-side of the application
  * Drives the bootstrap and runtime of the server-side
+ * Supported values: production, staging, development, test
  *
  * @class config
  * @static
@@ -551,7 +552,7 @@ function get(key) {
 }
 
 /**
- * Getter to gather neta data from the configuration
+ * Getter to gather meta data from the configuration
  * Broker to the configuration
  * Confidence Specific data
  *
