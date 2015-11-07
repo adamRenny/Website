@@ -31,7 +31,7 @@ module.exports = {
     // Compilation Files
     CLIENT_SCRIPTS: [
         'main.js',
-        '102015Game.jsx'
+        '112015Visualization.jsx'
     ],
 
     // Primary Directories

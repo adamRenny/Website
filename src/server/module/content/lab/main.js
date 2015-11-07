@@ -28,9 +28,7 @@ function register(server, options, next) {
                     page: new Page({
                         title: 'Lab',
                         bodyScripts: [
-                            // TODO: Get phaser working with Browserify
-                            assetService.buildURI('script/phaser.js'),
-                            assetService.buildURI('script/102015Game.js')
+                            assetService.buildURI('script/112015Visualization.js')
                         ]
                     })
                 }
