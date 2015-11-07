@@ -1,4 +1,3 @@
-import Page from '../../model/Page';
 import config from '../../config';
 
 /**

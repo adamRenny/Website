@@ -13,10 +13,8 @@ import ReactDOM from 'react-dom';
  */
 export default class October2015Game extends React.Component {
     componentDidMount() {
-        console.log('test - its mounted~');
-        this.props.game.attach(
-            ReactDOM.findDOMNode(this)
-        );
+        this.props.game.attach(ReactDOM.findDOMNode(this))
+            .then(() => {});
     }
 
     render() {
