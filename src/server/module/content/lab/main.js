@@ -26,9 +26,9 @@ function register(server, options, next) {
                 'LabRoute',
                 { 
                     page: new Page({
-                        title: 'Lab',
+                        title: 'Lab November2015',
                         bodyScripts: [
-                            assetService.buildURI('script/112015Visualization.js')
+                            assetService.buildURI('script/112015Lab.js')
                         ]
                     })
                 }

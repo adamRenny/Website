@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import October2015Game from '../../shared/October2015Game';
+import Nov2015Lab from '../../shared/lab/112015/Nov2015Lab';
 
 /**
  * Server-level React Component
@@ -15,14 +15,15 @@ import October2015Game from '../../shared/October2015Game';
  */
 export default class LabContent extends React.Component {
     buildWebContent() {
-        return ReactDOMServer.renderToStaticMarkup(
-            <October2015Game />
+        return ReactDOMServer.renderToString(
+            <Nov2015Lab />
         );
     }
 
     render() {
         return (
             <div role="article"
+               id="primaryContent"
                className="article"
                dangerouslySetInnerHTML={ { __html: this.buildWebContent() } }>
             </div>
