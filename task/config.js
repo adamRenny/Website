@@ -6,6 +6,7 @@ var DEST_DIRECTORY = 'dest';
 var SHARED_SUBDIRECTORY = 'shared';
 var CLIENT_SUBDIRECTORY = 'client';
 var SERVER_SUBDIRECTORY = 'server';
+var TOOL_SUBDIRECTORY = 'tool';
 
 var SCRIPT_SUBDIRECTORY = 'script';
 var STYLE_SUBDIRECTORY = 'style';
@@ -31,12 +32,15 @@ module.exports = {
     // Compilation Files
     CLIENT_SCRIPTS: [
         'main.js',
-        '112015Visualization.jsx'
+        '112015Lab.jsx'
     ],
 
     // Primary Directories
     SOURCE_DIRECTORY: SOURCE_DIRECTORY,
     DEST_DIRECTORY: DEST_DIRECTORY,
+    
+    SOURCE_TOOL: path.join(SOURCE_DIRECTORY, TOOL_SUBDIRECTORY),
+    DEST_TOOL: path.join(DEST_DIRECTORY, TOOL_SUBDIRECTORY),
 
     MAIN_STYLE: MAIN_STYLE,
 

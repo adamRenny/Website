@@ -17,7 +17,7 @@ var eventStream = require('event-stream');
 
 var path = require('path');
 
-var CONFIG = require('./tasks/config');
+var CONFIG = require('./task/config');
 
 // Gather the mode from the arguments
 
@@ -88,6 +88,12 @@ gulp.task('client:style', function() {
         .pipe(shouldMinify ? minifyCSS() : gulpUtil.noop())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(CONFIG.DEST_STYLE));
+});
+
+gulp.task('tool', function() {
+    return gulp.src(path.join(CONFIG.SOURCE_TOOL, '**', '*.js'))
+        .pipe(babel())
+        .pipe(gulp.dest(path.join(CONFIG.DEST_TOOL)));
 });
 
 gulp.task('client', ['client:script', 'client:style', 'client:script:copy']);
