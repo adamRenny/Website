@@ -31,8 +31,7 @@ var DEST_SERVER_VIEW = path.join(DEST_DIRECTORY, SERVER_SUBDIRECTORY, VIEW_SUBDI
 module.exports = {
     // Compilation Files
     CLIENT_SCRIPTS: [
-        'main.js',
-        '112015Lab.jsx'
+        
     ],
 
     // Primary Directories
